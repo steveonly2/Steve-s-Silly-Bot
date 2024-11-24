@@ -18,7 +18,7 @@ ahk = AHK()
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot_dir = os.path.join("C:", os.sep, "Steve's Silly Bot")
+bot_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the current script
 config_path = os.path.join(bot_dir, "config.json")
 
 # Function to load or ask for the token
@@ -50,7 +50,6 @@ def save_config(updated_data):
     # Save the merged config back to the file
     with open(config_path, "w") as f:
         json.dump(config, f, indent=4)
-
 # Function to get the screen resolution using ctypes
 def get_screen_resolution():
     user32 = ctypes.windll.user32
