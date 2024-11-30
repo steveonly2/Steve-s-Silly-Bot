@@ -12,9 +12,8 @@ if %errorlevel% neq 0 (
 
 rem Define URLs and paths
 set python_installer_url=https://www.python.org/ftp/python/3.12.7/python-3.12.7-amd64.exe
-set zip_url=https://github.com/steveonly2/Radiance-Macro/archive/refs/heads/main.zip
 set ahk_installer_url=https://www.autohotkey.com/download/ahk-install.exe
-set zip_name=Radiance-Macro-main.zip
+
 set installer_dir=%~dp0
 set extracted_dir=%installer_dir%Radiance-Macro-main
 set python_install_dir=%ProgramFiles%\Python312
