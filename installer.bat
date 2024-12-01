@@ -143,7 +143,16 @@ if %errorlevel% neq 0 (
 
 rem Install required Python modules
 echo Installing required Python modules. This may take a few moments...
-set "modules=opencv-python torch json os py-cord pywin32 py-cord pyautogui ctypes BytesIO"
+
+rem Uninstall discord.py to avoid conflicts
+"%pip_exe%" uninstall -y discord.py >nul 2>&1
+if errorlevel 0 (
+    echo Uninstalled discord.py to avoid conflicts with py-cord.
+) else (
+    echo discord.py not found. Skipping uninstallation.
+)
+
+set "modules=opencv-python torch json os py-cord pywin32 pyautogui ctypes"
 for %%m in (%modules%) do (
     "%python_exe%" -c "import %%m" >nul 2>&1
     if %errorlevel% neq 0 (
